@@ -9,8 +9,8 @@ router.get('/students', function(req, res, next) {
   Student.findAll( {order: [
     // order by present
     'present',
-    // and then by lower versions of names - a case-insensive sort
-     db.Sequelize.fn('lower', db.Sequelize.col('name'))
+    // and then by lower versions of starID - a case-insensive sort
+     db.Sequelize.fn('lower', db.Sequelize.col('starID'))
     ]}).then( students => {
     // convert into json and return
     return res.json(students)
